@@ -1,0 +1,226 @@
+!_TAG_FILE_FORMAT	2	/extended format; --format=1 will not append ;" to lines/
+!_TAG_FILE_SORTED	1	/0=unsorted, 1=sorted, 2=foldcase/
+!_TAG_PROGRAM_AUTHOR	Darren Hiebert	/dhiebert@users.sourceforge.net/
+!_TAG_PROGRAM_NAME	Exuberant Ctags	//
+!_TAG_PROGRAM_URL	http://ctags.sourceforge.net	/official site/
+!_TAG_PROGRAM_VERSION	5.9~svn20110310	//
+APPS	01_basic-client-server/Makefile	/^APPS    := server client$/;"	m
+APPS	02_read-write/Makefile	/^APPS    := rdma-client rdma-server$/;"	m
+APPS	03_file-transfer/rdma-file-transfer/Makefile	/^APPS    := client server$/;"	m
+BUFFER_SIZE	01_basic-client-server/client.c	/^const int BUFFER_SIZE = 1024;$/;"	v
+BUFFER_SIZE	01_basic-client-server/server.c	/^const int BUFFER_SIZE = 1024;$/;"	v
+BUFFER_SIZE	03_file-transfer/rdma-file-transfer/messages.h	/^const size_t BUFFER_SIZE = 10 * 1024 * 1024;$/;"	v
+CFLAGS	01_basic-client-server/Makefile	/^CFLAGS  := -Wall -g$/;"	m
+CFLAGS	02_read-write/Makefile	/^CFLAGS  := -Wall -Werror -g$/;"	m
+CFLAGS	03_file-transfer/rdma-file-transfer/Makefile	/^CFLAGS  := -Wall -Werror -g$/;"	m
+DEFAULT_PORT	03_file-transfer/rdma-file-transfer/messages.h	/^const char *DEFAULT_PORT = "12345";$/;"	v
+LD	02_read-write/Makefile	/^LD      := gcc$/;"	m
+LD	03_file-transfer/rdma-file-transfer/Makefile	/^LD      := gcc$/;"	m
+LDLIBS	01_basic-client-server/Makefile	/^LDLIBS  := ${LDLIBS} -lrdmacm -libverbs -lpthread$/;"	m
+LDLIBS	02_read-write/Makefile	/^LDLIBS  := ${LDLIBS} -lrdmacm -libverbs -lpthread$/;"	m
+LDLIBS	03_file-transfer/rdma-file-transfer/Makefile	/^LDLIBS  := ${LDLIBS} -lrdmacm -libverbs -lpthread$/;"	m
+MAX_FILE_NAME	03_file-transfer/rdma-file-transfer/server.c	7;"	d	file:
+MSG_DONE	02_read-write/rdma-common.c	/^    MSG_DONE$/;"	e	enum:message::__anon3	file:
+MSG_DONE	03_file-transfer/rdma-file-transfer/messages.h	/^  MSG_DONE$/;"	e	enum:message_id
+MSG_INVALID	03_file-transfer/rdma-file-transfer/messages.h	/^  MSG_INVALID = 0,$/;"	e	enum:message_id
+MSG_MR	02_read-write/rdma-common.c	/^    MSG_MR,$/;"	e	enum:message::__anon3	file:
+MSG_MR	03_file-transfer/rdma-file-transfer/messages.h	/^  MSG_MR,$/;"	e	enum:message_id
+MSG_READY	03_file-transfer/rdma-file-transfer/messages.h	/^  MSG_READY,$/;"	e	enum:message_id
+M_READ	02_read-write/rdma-common.h	/^  M_READ$/;"	e	enum:mode
+M_WRITE	02_read-write/rdma-common.h	/^  M_WRITE,$/;"	e	enum:mode
+RDMA_BUFFER_SIZE	02_read-write/rdma-common.c	/^static const int RDMA_BUFFER_SIZE = 1024;$/;"	v	file:
+RDMA_COMMON_H	02_read-write/rdma-common.h	2;"	d
+RDMA_COMMON_H	03_file-transfer/rdma-file-transfer/common.h	2;"	d
+RDMA_MESSAGES_H	03_file-transfer/rdma-file-transfer/messages.h	2;"	d
+RS_DONE_RECV	02_read-write/rdma-common.c	/^    RS_DONE_RECV$/;"	e	enum:connection::__anon6	file:
+RS_INIT	02_read-write/rdma-common.c	/^    RS_INIT,$/;"	e	enum:connection::__anon6	file:
+RS_MR_RECV	02_read-write/rdma-common.c	/^    RS_MR_RECV,$/;"	e	enum:connection::__anon6	file:
+SS_DONE_SENT	02_read-write/rdma-common.c	/^    SS_DONE_SENT$/;"	e	enum:connection::__anon5	file:
+SS_INIT	02_read-write/rdma-common.c	/^    SS_INIT,$/;"	e	enum:connection::__anon5	file:
+SS_MR_SENT	02_read-write/rdma-common.c	/^    SS_MR_SENT,$/;"	e	enum:connection::__anon5	file:
+SS_RDMA_SENT	02_read-write/rdma-common.c	/^    SS_RDMA_SENT,$/;"	e	enum:connection::__anon5	file:
+TEST_NZ	01_basic-client-server/client.c	8;"	d	file:
+TEST_NZ	01_basic-client-server/server.c	7;"	d	file:
+TEST_NZ	02_read-write/rdma-common.h	11;"	d
+TEST_NZ	03_file-transfer/rdma-file-transfer/common.h	11;"	d
+TEST_Z	01_basic-client-server/client.c	9;"	d	file:
+TEST_Z	01_basic-client-server/server.c	8;"	d	file:
+TEST_Z	02_read-write/rdma-common.h	12;"	d
+TEST_Z	03_file-transfer/rdma-file-transfer/common.h	12;"	d
+TIMEOUT_IN_MS	01_basic-client-server/client.c	/^const int TIMEOUT_IN_MS = 500; \/* ms *\/$/;"	v
+TIMEOUT_IN_MS	02_read-write/rdma-client.c	/^const int TIMEOUT_IN_MS = 500; \/* ms *\/$/;"	v
+TIMEOUT_IN_MS	03_file-transfer/rdma-file-transfer/common.c	/^const int TIMEOUT_IN_MS = 500;$/;"	v
+addr	03_file-transfer/rdma-file-transfer/messages.h	/^      uint64_t addr;$/;"	m	struct:message::__anon1::__anon2
+buffer	03_file-transfer/rdma-file-transfer/client.c	/^  char *buffer;$/;"	m	struct:client_context	file:
+buffer	03_file-transfer/rdma-file-transfer/server.c	/^  char *buffer;$/;"	m	struct:conn_context	file:
+buffer_mr	03_file-transfer/rdma-file-transfer/client.c	/^  struct ibv_mr *buffer_mr;$/;"	m	struct:client_context	typeref:struct:client_context::ibv_mr	file:
+buffer_mr	03_file-transfer/rdma-file-transfer/server.c	/^  struct ibv_mr *buffer_mr;$/;"	m	struct:conn_context	typeref:struct:conn_context::ibv_mr	file:
+build_connection	02_read-write/rdma-common.c	/^void build_connection(struct rdma_cm_id *id)$/;"	f
+build_connection	03_file-transfer/rdma-file-transfer/common.c	/^void build_connection(struct rdma_cm_id *id)$/;"	f
+build_context	01_basic-client-server/client.c	/^void build_context(struct ibv_context *verbs)$/;"	f
+build_context	01_basic-client-server/server.c	/^void build_context(struct ibv_context *verbs)$/;"	f
+build_context	02_read-write/rdma-common.c	/^void build_context(struct ibv_context *verbs)$/;"	f
+build_context	03_file-transfer/rdma-file-transfer/common.c	/^void build_context(struct ibv_context *verbs)$/;"	f
+build_params	02_read-write/rdma-common.c	/^void build_params(struct rdma_conn_param *params)$/;"	f
+build_params	03_file-transfer/rdma-file-transfer/common.c	/^void build_params(struct rdma_conn_param *params)$/;"	f
+build_qp_attr	01_basic-client-server/client.c	/^void build_qp_attr(struct ibv_qp_init_attr *qp_attr)$/;"	f
+build_qp_attr	01_basic-client-server/server.c	/^void build_qp_attr(struct ibv_qp_init_attr *qp_attr)$/;"	f
+build_qp_attr	02_read-write/rdma-common.c	/^void build_qp_attr(struct ibv_qp_init_attr *qp_attr)$/;"	f
+build_qp_attr	03_file-transfer/rdma-file-transfer/common.c	/^void build_qp_attr(struct ibv_qp_init_attr *qp_attr)$/;"	f
+client_context	03_file-transfer/rdma-file-transfer/client.c	/^struct client_context$/;"	s	file:
+comp_channel	01_basic-client-server/client.c	/^  struct ibv_comp_channel *comp_channel;$/;"	m	struct:context	typeref:struct:context::ibv_comp_channel	file:
+comp_channel	01_basic-client-server/server.c	/^  struct ibv_comp_channel *comp_channel;$/;"	m	struct:context	typeref:struct:context::ibv_comp_channel	file:
+comp_channel	02_read-write/rdma-common.c	/^  struct ibv_comp_channel *comp_channel;$/;"	m	struct:context	typeref:struct:context::ibv_comp_channel	file:
+comp_channel	03_file-transfer/rdma-file-transfer/common.c	/^  struct ibv_comp_channel *comp_channel;$/;"	m	struct:context	typeref:struct:context::ibv_comp_channel	file:
+completion_cb_fn	03_file-transfer/rdma-file-transfer/common.h	/^typedef void (*completion_cb_fn)(struct ibv_wc *wc);$/;"	t
+conn_context	03_file-transfer/rdma-file-transfer/server.c	/^struct conn_context$/;"	s	file:
+connect_cb_fn	03_file-transfer/rdma-file-transfer/common.h	/^typedef void (*connect_cb_fn)(struct rdma_cm_id *id);$/;"	t
+connected	02_read-write/rdma-common.c	/^  int connected;$/;"	m	struct:connection	file:
+connection	01_basic-client-server/client.c	/^struct connection {$/;"	s	file:
+connection	01_basic-client-server/server.c	/^struct connection {$/;"	s	file:
+connection	02_read-write/rdma-common.c	/^struct connection {$/;"	s	file:
+context	01_basic-client-server/client.c	/^struct context {$/;"	s	file:
+context	01_basic-client-server/server.c	/^struct context {$/;"	s	file:
+context	02_read-write/rdma-common.c	/^struct context {$/;"	s	file:
+context	03_file-transfer/rdma-file-transfer/common.c	/^struct context {$/;"	s	file:
+cq	01_basic-client-server/client.c	/^  struct ibv_cq *cq;$/;"	m	struct:context	typeref:struct:context::ibv_cq	file:
+cq	01_basic-client-server/server.c	/^  struct ibv_cq *cq;$/;"	m	struct:context	typeref:struct:context::ibv_cq	file:
+cq	02_read-write/rdma-common.c	/^  struct ibv_cq *cq;$/;"	m	struct:context	typeref:struct:context::ibv_cq	file:
+cq	03_file-transfer/rdma-file-transfer/common.c	/^  struct ibv_cq *cq;$/;"	m	struct:context	typeref:struct:context::ibv_cq	file:
+cq_poller_thread	01_basic-client-server/client.c	/^  pthread_t cq_poller_thread;$/;"	m	struct:context	file:
+cq_poller_thread	01_basic-client-server/server.c	/^  pthread_t cq_poller_thread;$/;"	m	struct:context	file:
+cq_poller_thread	02_read-write/rdma-common.c	/^  pthread_t cq_poller_thread;$/;"	m	struct:context	file:
+cq_poller_thread	03_file-transfer/rdma-file-transfer/common.c	/^  pthread_t cq_poller_thread;$/;"	m	struct:context	file:
+ctx	01_basic-client-server/client.c	/^  struct ibv_context *ctx;$/;"	m	struct:context	typeref:struct:context::ibv_context	file:
+ctx	01_basic-client-server/server.c	/^  struct ibv_context *ctx;$/;"	m	struct:context	typeref:struct:context::ibv_context	file:
+ctx	02_read-write/rdma-common.c	/^  struct ibv_context *ctx;$/;"	m	struct:context	typeref:struct:context::ibv_context	file:
+ctx	03_file-transfer/rdma-file-transfer/common.c	/^  struct ibv_context *ctx;$/;"	m	struct:context	typeref:struct:context::ibv_context	file:
+data	02_read-write/rdma-common.c	/^  } data;$/;"	m	struct:message	typeref:union:message::__anon4	file:
+data	03_file-transfer/rdma-file-transfer/messages.h	/^  } data;$/;"	m	struct:message	typeref:union:message::__anon1
+destroy_connection	02_read-write/rdma-common.c	/^void destroy_connection(void *context)$/;"	f
+die	01_basic-client-server/client.c	/^void die(const char *reason)$/;"	f
+die	01_basic-client-server/server.c	/^void die(const char *reason)$/;"	f
+die	02_read-write/rdma-common.c	/^void die(const char *reason)$/;"	f
+disconnect_cb_fn	03_file-transfer/rdma-file-transfer/common.h	/^typedef void (*disconnect_cb_fn)(struct rdma_cm_id *id);$/;"	t
+event_loop	03_file-transfer/rdma-file-transfer/common.c	/^void event_loop(struct rdma_event_channel *ec, int exit_on_disconnect)$/;"	f
+fd	03_file-transfer/rdma-file-transfer/client.c	/^  int fd;$/;"	m	struct:client_context	file:
+fd	03_file-transfer/rdma-file-transfer/server.c	/^  int fd;$/;"	m	struct:conn_context	file:
+file_name	03_file-transfer/rdma-file-transfer/client.c	/^  const char *file_name;$/;"	m	struct:client_context	file:
+file_name	03_file-transfer/rdma-file-transfer/server.c	/^  char file_name[MAX_FILE_NAME];$/;"	m	struct:conn_context	file:
+get_local_message_region	02_read-write/rdma-common.c	/^void * get_local_message_region(void *context)$/;"	f
+get_peer_message_region	02_read-write/rdma-common.c	/^char * get_peer_message_region(struct connection *conn)$/;"	f
+id	01_basic-client-server/client.c	/^  struct rdma_cm_id *id;$/;"	m	struct:connection	typeref:struct:connection::rdma_cm_id	file:
+id	02_read-write/rdma-common.c	/^  struct rdma_cm_id *id;$/;"	m	struct:connection	typeref:struct:connection::rdma_cm_id	file:
+id	03_file-transfer/rdma-file-transfer/messages.h	/^  int id;$/;"	m	struct:message
+main	01_basic-client-server/client.c	/^int main(int argc, char **argv)$/;"	f
+main	01_basic-client-server/server.c	/^int main(int argc, char **argv)$/;"	f
+main	02_read-write/rdma-client.c	/^int main(int argc, char **argv)$/;"	f
+main	02_read-write/rdma-server.c	/^int main(int argc, char **argv)$/;"	f
+main	03_file-transfer/rdma-file-transfer/client.c	/^int main(int argc, char **argv)$/;"	f
+main	03_file-transfer/rdma-file-transfer/server.c	/^int main(int argc, char **argv)$/;"	f
+message	02_read-write/rdma-common.c	/^struct message {$/;"	s	file:
+message	03_file-transfer/rdma-file-transfer/messages.h	/^struct message$/;"	s
+message_id	03_file-transfer/rdma-file-transfer/messages.h	/^enum message_id$/;"	g
+mode	02_read-write/rdma-common.h	/^enum mode {$/;"	g
+mr	02_read-write/rdma-common.c	/^    struct ibv_mr mr;$/;"	m	union:message::__anon4	typeref:struct:message::__anon4::ibv_mr	file:
+mr	03_file-transfer/rdma-file-transfer/messages.h	/^    } mr;$/;"	m	union:message::__anon1	typeref:struct:message::__anon1::__anon2
+msg	03_file-transfer/rdma-file-transfer/client.c	/^  struct message *msg;$/;"	m	struct:client_context	typeref:struct:client_context::message	file:
+msg	03_file-transfer/rdma-file-transfer/server.c	/^  struct message *msg;$/;"	m	struct:conn_context	typeref:struct:conn_context::message	file:
+msg_mr	03_file-transfer/rdma-file-transfer/client.c	/^  struct ibv_mr *msg_mr;$/;"	m	struct:client_context	typeref:struct:client_context::ibv_mr	file:
+msg_mr	03_file-transfer/rdma-file-transfer/server.c	/^  struct ibv_mr *msg_mr;$/;"	m	struct:conn_context	typeref:struct:conn_context::ibv_mr	file:
+num_completions	01_basic-client-server/client.c	/^  int num_completions;$/;"	m	struct:connection	file:
+on_addr_resolved	01_basic-client-server/client.c	/^int on_addr_resolved(struct rdma_cm_id *id)$/;"	f
+on_addr_resolved	02_read-write/rdma-client.c	/^int on_addr_resolved(struct rdma_cm_id *id)$/;"	f
+on_completion	01_basic-client-server/client.c	/^void on_completion(struct ibv_wc *wc)$/;"	f
+on_completion	01_basic-client-server/server.c	/^void on_completion(struct ibv_wc *wc)$/;"	f
+on_completion	02_read-write/rdma-common.c	/^void on_completion(struct ibv_wc *wc)$/;"	f
+on_completion	03_file-transfer/rdma-file-transfer/client.c	/^static void on_completion(struct ibv_wc *wc)$/;"	f	file:
+on_completion	03_file-transfer/rdma-file-transfer/server.c	/^static void on_completion(struct ibv_wc *wc)$/;"	f	file:
+on_connect	02_read-write/rdma-common.c	/^void on_connect(void *context)$/;"	f
+on_connect_request	01_basic-client-server/server.c	/^int on_connect_request(struct rdma_cm_id *id)$/;"	f
+on_connect_request	02_read-write/rdma-server.c	/^int on_connect_request(struct rdma_cm_id *id)$/;"	f
+on_connection	01_basic-client-server/client.c	/^int on_connection(void *context)$/;"	f
+on_connection	01_basic-client-server/server.c	/^int on_connection(void *context)$/;"	f
+on_connection	02_read-write/rdma-client.c	/^int on_connection(struct rdma_cm_id *id)$/;"	f
+on_connection	02_read-write/rdma-server.c	/^int on_connection(struct rdma_cm_id *id)$/;"	f
+on_connection	03_file-transfer/rdma-file-transfer/server.c	/^static void on_connection(struct rdma_cm_id *id)$/;"	f	file:
+on_disconnect	01_basic-client-server/client.c	/^int on_disconnect(struct rdma_cm_id *id)$/;"	f
+on_disconnect	01_basic-client-server/server.c	/^int on_disconnect(struct rdma_cm_id *id)$/;"	f
+on_disconnect	02_read-write/rdma-client.c	/^int on_disconnect(struct rdma_cm_id *id)$/;"	f
+on_disconnect	02_read-write/rdma-server.c	/^int on_disconnect(struct rdma_cm_id *id)$/;"	f
+on_disconnect	03_file-transfer/rdma-file-transfer/server.c	/^static void on_disconnect(struct rdma_cm_id *id)$/;"	f	file:
+on_event	01_basic-client-server/client.c	/^int on_event(struct rdma_cm_event *event)$/;"	f
+on_event	01_basic-client-server/server.c	/^int on_event(struct rdma_cm_event *event)$/;"	f
+on_event	02_read-write/rdma-client.c	/^int on_event(struct rdma_cm_event *event)$/;"	f
+on_event	02_read-write/rdma-server.c	/^int on_event(struct rdma_cm_event *event)$/;"	f
+on_pre_conn	03_file-transfer/rdma-file-transfer/client.c	/^static void on_pre_conn(struct rdma_cm_id *id)$/;"	f	file:
+on_pre_conn	03_file-transfer/rdma-file-transfer/server.c	/^static void on_pre_conn(struct rdma_cm_id *id)$/;"	f	file:
+on_route_resolved	01_basic-client-server/client.c	/^int on_route_resolved(struct rdma_cm_id *id)$/;"	f
+on_route_resolved	02_read-write/rdma-client.c	/^int on_route_resolved(struct rdma_cm_id *id)$/;"	f
+pd	01_basic-client-server/client.c	/^  struct ibv_pd *pd;$/;"	m	struct:context	typeref:struct:context::ibv_pd	file:
+pd	01_basic-client-server/server.c	/^  struct ibv_pd *pd;$/;"	m	struct:context	typeref:struct:context::ibv_pd	file:
+pd	02_read-write/rdma-common.c	/^  struct ibv_pd *pd;$/;"	m	struct:context	typeref:struct:context::ibv_pd	file:
+pd	03_file-transfer/rdma-file-transfer/common.c	/^  struct ibv_pd *pd;$/;"	m	struct:context	typeref:struct:context::ibv_pd	file:
+peer_addr	03_file-transfer/rdma-file-transfer/client.c	/^  uint64_t peer_addr;$/;"	m	struct:client_context	file:
+peer_mr	02_read-write/rdma-common.c	/^  struct ibv_mr peer_mr;$/;"	m	struct:connection	typeref:struct:connection::ibv_mr	file:
+peer_rkey	03_file-transfer/rdma-file-transfer/client.c	/^  uint32_t peer_rkey;$/;"	m	struct:client_context	file:
+poll_cq	01_basic-client-server/client.c	/^void * poll_cq(void *ctx)$/;"	f
+poll_cq	01_basic-client-server/server.c	/^void * poll_cq(void *ctx)$/;"	f
+poll_cq	02_read-write/rdma-common.c	/^void * poll_cq(void *ctx)$/;"	f
+poll_cq	03_file-transfer/rdma-file-transfer/common.c	/^void * poll_cq(void *ctx)$/;"	f
+post_receive	03_file-transfer/rdma-file-transfer/client.c	/^static void post_receive(struct rdma_cm_id *id)$/;"	f	file:
+post_receive	03_file-transfer/rdma-file-transfer/server.c	/^static void post_receive(struct rdma_cm_id *id)$/;"	f	file:
+post_receives	01_basic-client-server/client.c	/^void post_receives(struct connection *conn)$/;"	f
+post_receives	01_basic-client-server/server.c	/^void post_receives(struct connection *conn)$/;"	f
+post_receives	02_read-write/rdma-common.c	/^void post_receives(struct connection *conn)$/;"	f
+pre_conn_cb_fn	03_file-transfer/rdma-file-transfer/common.h	/^typedef void (*pre_conn_cb_fn)(struct rdma_cm_id *id);$/;"	t
+qp	01_basic-client-server/client.c	/^  struct ibv_qp *qp;$/;"	m	struct:connection	typeref:struct:connection::ibv_qp	file:
+qp	01_basic-client-server/server.c	/^  struct ibv_qp *qp;$/;"	m	struct:connection	typeref:struct:connection::ibv_qp	file:
+qp	02_read-write/rdma-common.c	/^  struct ibv_qp *qp;$/;"	m	struct:connection	typeref:struct:connection::ibv_qp	file:
+rc_client_loop	03_file-transfer/rdma-file-transfer/common.c	/^void rc_client_loop(const char *host, const char *port, void *context)$/;"	f
+rc_die	03_file-transfer/rdma-file-transfer/common.c	/^void rc_die(const char *reason)$/;"	f
+rc_disconnect	03_file-transfer/rdma-file-transfer/common.c	/^void rc_disconnect(struct rdma_cm_id *id)$/;"	f
+rc_get_pd	03_file-transfer/rdma-file-transfer/common.c	/^struct ibv_pd * rc_get_pd()$/;"	f
+rc_init	03_file-transfer/rdma-file-transfer/common.c	/^void rc_init(pre_conn_cb_fn pc, connect_cb_fn conn, completion_cb_fn comp, disconnect_cb_fn disc)$/;"	f
+rc_server_loop	03_file-transfer/rdma-file-transfer/common.c	/^void rc_server_loop(const char *port)$/;"	f
+rdma_local_mr	02_read-write/rdma-common.c	/^  struct ibv_mr *rdma_local_mr;$/;"	m	struct:connection	typeref:struct:connection::ibv_mr	file:
+rdma_local_region	02_read-write/rdma-common.c	/^  char *rdma_local_region;$/;"	m	struct:connection	file:
+rdma_remote_mr	02_read-write/rdma-common.c	/^  struct ibv_mr *rdma_remote_mr;$/;"	m	struct:connection	typeref:struct:connection::ibv_mr	file:
+rdma_remote_region	02_read-write/rdma-common.c	/^  char *rdma_remote_region;$/;"	m	struct:connection	file:
+recv_mr	01_basic-client-server/client.c	/^  struct ibv_mr *recv_mr;$/;"	m	struct:connection	typeref:struct:connection::ibv_mr	file:
+recv_mr	01_basic-client-server/server.c	/^  struct ibv_mr *recv_mr;$/;"	m	struct:connection	typeref:struct:connection::ibv_mr	file:
+recv_mr	02_read-write/rdma-common.c	/^  struct ibv_mr *recv_mr;$/;"	m	struct:connection	typeref:struct:connection::ibv_mr	file:
+recv_msg	02_read-write/rdma-common.c	/^  struct message *recv_msg;$/;"	m	struct:connection	typeref:struct:connection::message	file:
+recv_region	01_basic-client-server/client.c	/^  char *recv_region;$/;"	m	struct:connection	file:
+recv_region	01_basic-client-server/server.c	/^  char *recv_region;$/;"	m	struct:connection	file:
+recv_state	02_read-write/rdma-common.c	/^  } recv_state;$/;"	m	struct:connection	typeref:enum:connection::__anon6	file:
+register_memory	01_basic-client-server/client.c	/^void register_memory(struct connection *conn)$/;"	f
+register_memory	01_basic-client-server/server.c	/^void register_memory(struct connection *conn)$/;"	f
+register_memory	02_read-write/rdma-common.c	/^void register_memory(struct connection *conn)$/;"	f
+rkey	03_file-transfer/rdma-file-transfer/messages.h	/^      uint32_t rkey;$/;"	m	struct:message::__anon1::__anon2
+s_ctx	01_basic-client-server/client.c	/^static struct context *s_ctx = NULL;$/;"	v	typeref:struct:context	file:
+s_ctx	01_basic-client-server/server.c	/^static struct context *s_ctx = NULL;$/;"	v	typeref:struct:context	file:
+s_ctx	02_read-write/rdma-common.c	/^static struct context *s_ctx = NULL;$/;"	v	typeref:struct:context	file:
+s_ctx	03_file-transfer/rdma-file-transfer/common.c	/^static struct context *s_ctx = NULL;$/;"	v	typeref:struct:context	file:
+s_mode	02_read-write/rdma-common.c	/^static enum mode s_mode = M_WRITE;$/;"	v	typeref:enum:mode	file:
+s_on_completion_cb	03_file-transfer/rdma-file-transfer/common.c	/^static completion_cb_fn s_on_completion_cb = NULL;$/;"	v	file:
+s_on_connect_cb	03_file-transfer/rdma-file-transfer/common.c	/^static connect_cb_fn s_on_connect_cb = NULL;$/;"	v	file:
+s_on_disconnect_cb	03_file-transfer/rdma-file-transfer/common.c	/^static disconnect_cb_fn s_on_disconnect_cb = NULL;$/;"	v	file:
+s_on_pre_conn_cb	03_file-transfer/rdma-file-transfer/common.c	/^static pre_conn_cb_fn s_on_pre_conn_cb = NULL;$/;"	v	file:
+send_file_name	03_file-transfer/rdma-file-transfer/client.c	/^static void send_file_name(struct rdma_cm_id *id)$/;"	f	file:
+send_message	02_read-write/rdma-common.c	/^void send_message(struct connection *conn)$/;"	f
+send_message	03_file-transfer/rdma-file-transfer/server.c	/^static void send_message(struct rdma_cm_id *id)$/;"	f	file:
+send_mr	01_basic-client-server/client.c	/^  struct ibv_mr *send_mr;$/;"	m	struct:connection	typeref:struct:connection::ibv_mr	file:
+send_mr	01_basic-client-server/server.c	/^  struct ibv_mr *send_mr;$/;"	m	struct:connection	typeref:struct:connection::ibv_mr	file:
+send_mr	02_read-write/rdma-common.c	/^  struct ibv_mr *send_mr;$/;"	m	struct:connection	typeref:struct:connection::ibv_mr	file:
+send_mr	02_read-write/rdma-common.c	/^void send_mr(void *context)$/;"	f
+send_msg	02_read-write/rdma-common.c	/^  struct message *send_msg;$/;"	m	struct:connection	typeref:struct:connection::message	file:
+send_next_chunk	03_file-transfer/rdma-file-transfer/client.c	/^static void send_next_chunk(struct rdma_cm_id *id)$/;"	f	file:
+send_region	01_basic-client-server/client.c	/^  char *send_region;$/;"	m	struct:connection	file:
+send_region	01_basic-client-server/server.c	/^  char *send_region;$/;"	m	struct:connection	file:
+send_state	02_read-write/rdma-common.c	/^  } send_state;$/;"	m	struct:connection	typeref:enum:connection::__anon5	file:
+set_mode	02_read-write/rdma-common.c	/^void set_mode(enum mode m)$/;"	f
+type	02_read-write/rdma-common.c	/^  } type;$/;"	m	struct:message	typeref:enum:message::__anon3	file:
+usage	02_read-write/rdma-client.c	/^void usage(const char *argv0)$/;"	f
+usage	02_read-write/rdma-server.c	/^void usage(const char *argv0)$/;"	f
+write_remote	03_file-transfer/rdma-file-transfer/client.c	/^static void write_remote(struct rdma_cm_id *id, uint32_t len)$/;"	f	file:

@@ -7,7 +7,7 @@
 #define TEST_NZ(x) do { if ( (x)) die("error: " #x " failed (returned non-zero)." ); } while (0)
 #define TEST_Z(x)  do { if (!(x)) die("error: " #x " failed (returned zero/null)."); } while (0)
 
-const int BUFFER_SIZE = 1024;
+const int BUFFER_SIZE = 102400;
 
 struct context {
   struct ibv_context *ctx;
@@ -63,24 +63,67 @@ int main(int argc, char **argv)
   addr.sin_family = AF_INET;
 #endif
 
+printf("server rdma_create_event_channel() \n");
+// sleep(3);
+
+
   TEST_Z(ec = rdma_create_event_channel());
+
+printf("server rdma_create_id() \n");
+// sleep(3);
+
   TEST_NZ(rdma_create_id(ec, &listener, NULL, RDMA_PS_TCP));
+
+printf("server rdma_bind_addr() \n");
+// sleep(3);
+
   TEST_NZ(rdma_bind_addr(listener, (struct sockaddr *)&addr));
+
+printf("server rdma_listen() \n");
+// sleep(3);
+
   TEST_NZ(rdma_listen(listener, 10)); /* backlog=10 is arbitrary */
+
+
+printf("server rdma_get_src_port() \n");
+// sleep(3);
 
   port = ntohs(rdma_get_src_port(listener));
 
-  printf("listening on port %d.\n", port);
+
+  printf("server listening on port %d.\n", port);
 
   while (rdma_get_cm_event(ec, &event) == 0) {
+
+printf("server rdma_get_cm_event()  end \n");
+// sleep(3);
+
     struct rdma_cm_event event_copy;
 
     memcpy(&event_copy, event, sizeof(*event));
     rdma_ack_cm_event(event);
 
     if (on_event(&event_copy))
+    {
+
+printf("server on_event() break \n");
+// sleep(3);
+
+
       break;
+    }
+    else
+    {
+
+printf("server on_event() OK \n");
+// sleep(3);
+
+    }
   }
+
+printf("server rdma_destroy_id() \n");
+// sleep(3);
+
 
   rdma_destroy_id(listener);
   rdma_destroy_event_channel(ec);
@@ -148,19 +191,27 @@ void * poll_cq(void *ctx)
 
 void post_receives(struct connection *conn)
 {
+  printf("\n *******   server posting receives\n");
   struct ibv_recv_wr wr, *bad_wr = NULL;
   struct ibv_sge sge;
 
+  printf(" 1111 \n");
   wr.wr_id = (uintptr_t)conn;
   wr.next = NULL;
   wr.sg_list = &sge;
   wr.num_sge = 1;
-
+  printf(" 222 \n");
+printf("conn:%ld\n", conn);
   sge.addr = (uintptr_t)conn->recv_region;
+  printf(" 333 \n");
+  // sge.length = 1 + strlen(conn->send_region);
   sge.length = BUFFER_SIZE;
   sge.lkey = conn->recv_mr->lkey;
+  printf(" 444 \n");
 
   TEST_NZ(ibv_post_recv(conn->qp, &wr, &bad_wr));
+  printf(" 555 \n");
+
 }
 
 void register_memory(struct connection *conn)
@@ -183,16 +234,58 @@ void register_memory(struct connection *conn)
 
 void on_completion(struct ibv_wc *wc)
 {
+    
+  printf("IBV_WC_SUCCESS:%d,wc->status:%d\n", IBV_WC_SUCCESS,wc->status);
+  printf("IBV_WC_RECV:%d,IBV_WC_SEND:%d,,wc->opcode:%d\n", IBV_WC_RECV,IBV_WC_SEND,wc->opcode);
   if (wc->status != IBV_WC_SUCCESS)
     die("on_completion: status is not IBV_WC_SUCCESS.");
 
   if (wc->opcode & IBV_WC_RECV) {
     struct connection *conn = (struct connection *)(uintptr_t)wc->wr_id;
 
-    printf("received message: %s\n", conn->recv_region);
+    printf("server received message: %s,wc->byte_len:%d\n", conn->recv_region,wc->byte_len);
 
   } else if (wc->opcode == IBV_WC_SEND) {
-    printf("send completed successfully.\n");
+    printf("server send completed successfully.\n");
+  }
+
+
+
+  static int count = 0;
+  ++ count;
+  if( count > 2  )
+  {
+      struct connection *conn2 = (struct connection *)(uintptr_t)wc->wr_id ;
+      struct ibv_send_wr wr, *bad_wr = NULL;
+      struct ibv_sge sge;
+    if( wc->opcode & IBV_WC_RECV )
+    {
+      post_receives(conn2);
+
+      snprintf(conn2->send_region, BUFFER_SIZE, "%4d%4d%4d%4d", count,count,count,count);
+
+      printf("server connected. posting send...conn2->send_region: %s\n",conn2->send_region);
+
+      memset(&wr, 0, sizeof(wr));
+
+      wr.opcode = IBV_WR_SEND;
+      wr.sg_list = &sge;
+      wr.num_sge = 1;
+      wr.send_flags = IBV_SEND_SIGNALED;
+
+      sge.addr = (uintptr_t)conn2->send_region;
+      // sge.length = 1 + strlen(conn2->send_region);
+      sge.length = BUFFER_SIZE;
+      sge.lkey = conn2->send_mr->lkey;
+
+      printf("\n *******   server posting send\n");
+
+      TEST_NZ(ibv_post_send(conn2->qp, &wr, &bad_wr));
+      
+    }
+
+
+
   }
 }
 
@@ -202,7 +295,7 @@ int on_connect_request(struct rdma_cm_id *id)
   struct rdma_conn_param cm_params;
   struct connection *conn;
 
-  printf("received connection request.\n");
+  printf("server received connection request.\n");
 
   build_context(id->verbs);
   build_qp_attr(&qp_attr);
@@ -227,9 +320,10 @@ int on_connection(void *context)
   struct ibv_send_wr wr, *bad_wr = NULL;
   struct ibv_sge sge;
 
+  post_receives(conn);
   snprintf(conn->send_region, BUFFER_SIZE, "message from passive/server side with pid %d", getpid());
 
-  printf("connected. posting send...\n");
+  printf("server connected. posting send...\n");
 
   memset(&wr, 0, sizeof(wr));
 
@@ -239,8 +333,11 @@ int on_connection(void *context)
   wr.send_flags = IBV_SEND_SIGNALED;
 
   sge.addr = (uintptr_t)conn->send_region;
+  // sge.length = 1 + strlen(conn->send_region);
   sge.length = BUFFER_SIZE;
   sge.lkey = conn->send_mr->lkey;
+
+  printf("\n *******   server posting send\n");
 
   TEST_NZ(ibv_post_send(conn->qp, &wr, &bad_wr));
 
@@ -251,7 +348,7 @@ int on_disconnect(struct rdma_cm_id *id)
 {
   struct connection *conn = (struct connection *)id->context;
 
-  printf("peer disconnected.\n");
+  printf("server peer disconnected.\n");
 
   rdma_destroy_qp(id);
 
@@ -271,7 +368,7 @@ int on_disconnect(struct rdma_cm_id *id)
 int on_event(struct rdma_cm_event *event)
 {
   int r = 0;
-
+printf("event->event:%d\n", event->event);
   if (event->event == RDMA_CM_EVENT_CONNECT_REQUEST)
     r = on_connect_request(event->id);
   else if (event->event == RDMA_CM_EVENT_ESTABLISHED)
